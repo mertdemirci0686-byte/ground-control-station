@@ -1,1 +1,0 @@
-"use strict";const e=require("electron");e.contextBridge.exposeInMainWorld("electronAPI",{onTelemetryData:t=>{e.ipcRenderer.on("telemetry-data",(n,r)=>t(r))},startTelemetry:()=>e.ipcRenderer.invoke("start-telemetry"),stopTelemetry:()=>e.ipcRenderer.invoke("stop-telemetry"),getTelemetryStatus:()=>e.ipcRenderer.invoke("get-telemetry-status")});

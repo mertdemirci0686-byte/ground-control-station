@@ -5,8 +5,10 @@ yarn.lock
 
 # Build output
 dist/
+dist-electron/
 build/
 out/
+release/
 
 # Electron
 *.log
