@@ -19,7 +19,7 @@ export const SpeedWidget: React.FC<Props> = ({ telemetry }) => {
           {speed.toFixed(1)}
         </div>
         <div className="widget-unit">m/s</div>
-        <div className="widget-label">Ground Speed: {telemetry?.groundSpeed.toFixed(1) ?? 0} m/s</div>
+        <div className="widget-label">Ground Speed: {telemetry?.groundSpeed?.toFixed(1) ?? '0.0'} m/s</div>
       </div>
     </div>
   );
