@@ -1,0 +1,9 @@
+export { AltitudeWidget } from './AltitudeWidget';
+export { SpeedWidget } from './SpeedWidget';
+export { BatteryWidget } from './BatteryWidget';
+export { CompassWidget } from './CompassWidget';
+export { GPSWidget } from './GPSWidget';
+export { ArtificialHorizonWidget } from './ArtificialHorizonWidget';
+export { FlightModeWidget } from './FlightModeWidget';
+export { TelemetryTableWidget } from './TelemetryTableWidget';
+export { MapWidget } from './MapWidget';
