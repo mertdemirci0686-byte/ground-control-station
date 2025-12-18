@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import GridLayout, { Layout } from 'react-grid-layout';
 import { motion } from 'framer-motion';
@@ -100,7 +100,7 @@ export default function DroneCockpitPro() {
   };
 
   // Load saved layout on mount
-  useState(() => {
+  useEffect(() => {
     const saved = localStorage.getItem('cockpitLayout');
     if (saved) {
       try {
@@ -109,7 +109,7 @@ export default function DroneCockpitPro() {
         console.error('Failed to load saved layout', e);
       }
     }
-  });
+  }, []);
 
   return (
     <div className="w-full h-screen relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">

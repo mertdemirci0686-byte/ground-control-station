@@ -11,11 +11,11 @@ export default function SignalStrength() {
   const percentage = Math.max(0, Math.min(100, ((rssi + 90) / 60) * 100));
 
   const getSignalQuality = () => {
-    if (rssi > -50) return { text: 'EXCELLENT', color: 'text-accent-green', bars: 5 };
-    if (rssi > -60) return { text: 'GOOD', color: 'text-cyan-400', bars: 4 };
-    if (rssi > -70) return { text: 'FAIR', color: 'text-warning-orange', bars: 3 };
-    if (rssi > -80) return { text: 'WEAK', color: 'text-orange-500', bars: 2 };
-    return { text: 'POOR', color: 'text-critical-red', bars: 1 };
+    if (rssi > -50) return { text: 'EXCELLENT', color: 'text-accent-green', bgColor: 'bg-accent-green', bars: 5 };
+    if (rssi > -60) return { text: 'GOOD', color: 'text-cyan-400', bgColor: 'bg-cyan-400', bars: 4 };
+    if (rssi > -70) return { text: 'FAIR', color: 'text-warning-orange', bgColor: 'bg-warning-orange', bars: 3 };
+    if (rssi > -80) return { text: 'WEAK', color: 'text-orange-500', bgColor: 'bg-orange-500', bars: 2 };
+    return { text: 'POOR', color: 'text-critical-red', bgColor: 'bg-critical-red', bars: 1 };
   };
 
   const quality = getSignalQuality();
@@ -62,7 +62,7 @@ export default function SignalStrength() {
               key={bar}
               className={`w-4 rounded-t ${
                 bar <= quality.bars 
-                  ? quality.color.replace('text-', 'bg-')
+                  ? quality.bgColor
                   : 'bg-gray-700'
               }`}
               style={{ height: `${bar * 8}px` }}
@@ -76,7 +76,7 @@ export default function SignalStrength() {
         {/* Percentage Bar */}
         <div className="w-full h-3 bg-black/50 border border-cyan-500/50 rounded-full overflow-hidden">
           <motion.div
-            className={`h-full ${quality.color.replace('text-', 'bg-')}`}
+            className={`h-full ${quality.bgColor}`}
             style={{ width: `${percentage}%` }}
             animate={{
               boxShadow: [

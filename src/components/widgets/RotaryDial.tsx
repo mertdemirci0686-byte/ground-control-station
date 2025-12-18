@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface RotaryDialProps {
@@ -72,7 +72,7 @@ export default function RotaryDial({
   };
 
   // Add event listeners
-  useState(() => {
+  useEffect(() => {
     if (isDragging) {
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mouseup', handleMouseUp);
@@ -81,7 +81,7 @@ export default function RotaryDial({
         window.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  });
+  }, [isDragging]);
 
   return (
     <div className="glass-strong rounded-lg p-4 w-56">
