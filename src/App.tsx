@@ -4,6 +4,7 @@ import MainLayout from './components/layouts/MainLayout';
 import MainMenu from './modules/MainMenu';
 import DroneModule from './modules/drone/DroneModule';
 import DroneCockpit from './modules/drone/DroneCockpit';
+import DroneCockpitPro from './modules/drone/DroneCockpitPro';
 import RobotModule from './modules/robot/RobotModule';
 import VehicleModule from './modules/vehicle/VehicleModule';
 import HomeAutomation from './modules/home/HomeAutomation';
@@ -52,6 +53,7 @@ function App() {
             <Route path="/" element={<MainMenu />} />
             <Route path="/drone" element={<DroneModule />} />
             <Route path="/drone/cockpit/:droneId" element={<DroneCockpit />} />
+            <Route path="/drone/cockpit-pro/:droneId" element={<DroneCockpitPro />} />
             <Route path="/robot" element={<RobotModule />} />
             <Route path="/vehicle" element={<VehicleModule />} />
             <Route path="/home" element={<HomeAutomation />} />

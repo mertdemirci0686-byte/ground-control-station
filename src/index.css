@@ -127,6 +127,17 @@ body {
   animation: pulse-ring 2s ease-out infinite;
 }
 
+/* Cyber-Neon Color Palette */
+:root {
+  --primary-cyan: #00ffff;
+  --primary-magenta: #ff00ff;
+  --accent-green: #00ff88;
+  --warning-orange: #ffaa00;
+  --critical-red: #ff0055;
+  --background-dark: #0a0a0f;
+  --glass-overlay: rgba(10, 10, 20, 0.85);
+}
+
 /* Theme Specific Styles */
 .theme-dark {
   --bg-primary: #000000;
@@ -186,4 +197,164 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+/* Neon Glow Animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 5px var(--primary-cyan),
+      0 0 10px var(--primary-cyan),
+      0 0 20px var(--primary-cyan),
+      0 0 40px var(--primary-cyan);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 
+      0 0 10px var(--primary-cyan),
+      0 0 20px var(--primary-cyan),
+      0 0 40px var(--primary-cyan),
+      0 0 80px var(--primary-cyan);
+    opacity: 0.8;
+  }
+}
+
+.neon-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Sci-Fi Panel with Clipped Corners */
+.sci-fi-panel {
+  position: relative;
+  border: 2px solid var(--primary-cyan);
+  clip-path: polygon(
+    0 10px, 10px 0,
+    calc(100% - 10px) 0, 100% 10px,
+    100% calc(100% - 10px), calc(100% - 10px) 100%,
+    10px 100%, 0 calc(100% - 10px)
+  );
+  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.1) 0%,
+    rgba(255, 0, 255, 0.1) 100%);
+}
+
+/* React Grid Layout Styles */
+.react-grid-layout {
+  position: relative;
+}
+
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top, width, height;
+}
+
+.react-grid-item.cssTransforms {
+  transition-property: transform, width, height;
+}
+
+.react-grid-item.resizing {
+  transition: none;
+  z-index: 100;
+  will-change: width, height;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 100;
+  will-change: transform;
+}
+
+.react-grid-item.dropping {
+  visibility: hidden;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: rgba(0, 255, 255, 0.3);
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  border: 2px dashed var(--primary-cyan);
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+
+.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+}
+
+.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+}
+
+.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+}
+
+.react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(0, 255, 255, 0.4);
+}
+
+/* LED Indicator Animations */
+@keyframes led-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.led-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: led-pulse 2s ease-in-out infinite;
+}
+
+.led-green {
+  background: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
+}
+
+.led-blue {
+  background: var(--primary-cyan);
+  box-shadow: 0 0 10px var(--primary-cyan), 0 0 20px var(--primary-cyan);
+}
+
+.led-red {
+  background: var(--critical-red);
+  box-shadow: 0 0 10px var(--critical-red), 0 0 20px var(--critical-red);
+  animation: led-pulse 0.5s ease-in-out infinite;
+}
+
+.led-orange {
+  background: var(--warning-orange);
+  box-shadow: 0 0 10px var(--warning-orange), 0 0 20px var(--warning-orange);
+  animation: led-pulse 1s ease-in-out infinite;
 }
